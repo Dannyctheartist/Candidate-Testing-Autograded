@@ -43,14 +43,31 @@ for (let i = 0; i < candidateAnswers.length; i++){
   console.log(`Result: ${correctness}`);
   console.log("_____________________________________________");
 }
+
+let numberOfCorrectAnswers = 0;
+
+for (let i = 0; i < correctAnswers.length; i++) {
+  if (correctAnswers[i].toLowerCase() === candidateAnswers[i].toLowerCase()) {
+    numberOfCorrectAnswers++;
+  }
+}
+let numberOfQuizQuestions = correctAnswers.length;
+
+let grade = (numberOfCorrectAnswers / numberOfQuizQuestions) * 100;
+
+console.log(`Your grade is: ${grade}%`);
+
+if (grade >= 80) {
+  console.log("You have Passed the quiz!");
+} else {
+  console.log("You have failed the quiz.");
 }
 
+  //let grade;  //TODO 3.2 use this variable to calculate the candidates score.
 
- // let grade;  //TODO 3.2 use this variable to calculate the candidates score.
 
-
-  //return grade;
-
+  return grade;
+}
 
 function runProgram() {
   askForName();
